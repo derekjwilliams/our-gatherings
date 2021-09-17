@@ -43,7 +43,7 @@ Found in the most obvious place, `schema.sql`.  Update to your liking, modify `.
 query {
   allGatherings {
     nodes {
-			gatheringParticipantsByGatheringId {
+      gatheringParticipantsByGatheringId {
         nodes {
           participantByParticipantId {
             name
