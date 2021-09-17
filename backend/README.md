@@ -77,7 +77,7 @@ mutation CreateParticipant($newParticipant: CreateParticipantInput!) {
 
 QUERY VARIABLES:
 
-```
+```json
 {
   "newParticipant": {
     "participant": {
@@ -87,3 +87,28 @@ QUERY VARIABLES:
 }
 ```
 
+### Create a Gathering
+
+```
+mutation CreateGathering($newGathering: CreateGatheringInput!) {
+  createGathering(input: $newGathering) {
+    gathering {
+      name
+      description
+    }
+  }
+}
+```
+
+QUERY VARIABLES:
+
+```json
+{
+  "newGathering": {
+    "gathering": {
+       "name": "Find Your Special Purpose",
+       "description": "Is it making eyeglass accessories?"
+    }
+  }
+}
+```
