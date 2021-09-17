@@ -31,3 +31,8 @@ Postgis Filter
 
 https://github.com/graphile-contrib/postgraphile-plugin-connection-filter-postgis
 
+
+## SQL Schema
+
+Found in the most obvious place, `schema.sql`.  Update to your liking, modify `.env` to match
+
