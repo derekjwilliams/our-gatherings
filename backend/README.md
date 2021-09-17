@@ -36,3 +36,22 @@ https://github.com/graphile-contrib/postgraphile-plugin-connection-filter-postgi
 
 Found in the most obvious place, `schema.sql`.  Update to your liking, modify `.env` to match
 
+
+## GraphQL Example Queries
+
+```
+query {
+  allGatherings {
+    nodes {
+			gatheringParticipantsByGatheringId {
+        nodes {
+          participantByParticipantId {
+            name
+          }
+        }
+      }
+    }
+  }
+}
+```
+
