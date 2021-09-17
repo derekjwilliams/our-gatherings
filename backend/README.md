@@ -2,6 +2,11 @@
 
 Simple Postgraphile based graphQL API for managing gatherings, AKA events
 
+## Installing
+
+The usual: 
+
+```npm install```
 
 ## Running
 
