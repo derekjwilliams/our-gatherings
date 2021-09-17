@@ -42,7 +42,9 @@ https://github.com/graphile-contrib/postgraphile-plugin-connection-filter-postgi
 Found in the most obvious place, `schema.sql`.  Update to your liking, modify `.env` to match
 
 
-## GraphQL Example Queries
+## GraphQL Examples
+
+### Queries
 
 ```
 query {
@@ -55,6 +57,31 @@ query {
           }
         }
       }
+    }
+  }
+}
+```
+
+## Mutations
+
+### Create a Participant
+```
+mutation CreateParticipant($newParticipant: CreateParticipantInput!) {
+  createParticipant(input: $newParticipant) {
+    participant {
+      name
+    }
+  }
+}
+```
+
+QUERY VARIABLES:
+
+```
+{
+  "newParticipant": {
+    "participant": {
+       "name": "Ringo Starr"
     }
   }
 }
