@@ -79,24 +79,24 @@ ALTER TABLE "event".gathering_location OWNER TO postgres;
 GRANT ALL ON TABLE "event".gathering_location TO postgres;
 
 
--- "event".participant_gathering definition
+-- "event".gathering_participant definition
 
 -- Drop table
 
--- DROP TABLE "event".participant_gathering;
+-- DROP TABLE "event".gathering_participant;
 
-CREATE TABLE "event".participant_gathering (
+CREATE TABLE "event".gathering_participant (
 	participant_id uuid NOT NULL,
 	gathering_id uuid NOT NULL,
-	CONSTRAINT participant_gathering_pkey PRIMARY KEY (participant_id, gathering_id),
+	CONSTRAINT gathering_participant_pkey PRIMARY KEY (gathering_id, participant_id),
 	CONSTRAINT fk_gathering FOREIGN KEY (gathering_id) REFERENCES "event".gathering(id),
 	CONSTRAINT fk_participant FOREIGN KEY (participant_id) REFERENCES "event".participant(id)
 );
 
 -- Permissions
 
-ALTER TABLE "event".participant_gathering OWNER TO postgres;
-GRANT ALL ON TABLE "event".participant_gathering TO postgres;
+ALTER TABLE "event".gathering_participant OWNER TO postgres;
+GRANT ALL ON TABLE "event".gathering_participant TO postgres;
 
 
 
