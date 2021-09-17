@@ -50,10 +50,15 @@ Found in the most obvious place, `schema.sql`.  Update to your liking, modify `.
 query {
   allGatherings {
     nodes {
+      id
+      description
+      startTime
+      endTime
       gatheringParticipantsByGatheringId {
         nodes {
           participantByParticipantId {
             name
+            id
           }
         }
       }
@@ -112,3 +117,31 @@ QUERY VARIABLES:
   }
 }
 ```
+
+## Add a Participant to a Gathering
+
+```
+mutation AddGatheringParticipant($gatheringParticipant: CreateGatheringParticipantInput!) {
+  createGatheringParticipant(input: $gatheringParticipant) {
+    gatheringParticipant {
+      participantId
+      gatheringId
+    }
+  }
+}
+```
+
+QUERY VARIABLES:
+
+```json
+{
+  "gatheringParticipant": {
+    "gatheringParticipant": {
+       "participantId": "67cbb3a3-daa2-4922-a8b6-227a39c0cb5d",
+       "gatheringId": "c67df2c5-27d7-4ca6-b415-f02b28970455"
+    }
+  }
+}
+```
+
+*Note: The ids above will be different for each database, query the Participants and Gatherings to get the ids*

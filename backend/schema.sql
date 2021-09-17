@@ -12,7 +12,7 @@ CREATE TABLE "event".gathering (
 	"name" varchar(1024) NULL,
 	description varchar(4096) NULL,
 	start_time timestamptz NULL,
-	end_date timestamptz NULL,
+	end_time timestamptz NULL,
 	CONSTRAINT gathering_pk PRIMARY KEY (id)
 );
 
