@@ -5,6 +5,7 @@ const { postgraphile } = require('postgraphile')
 //const PostgisPlugin =  require("@graphile/postgis")
 //const PgConnectionFilterPostgisPlugin = require("postgraphile-plugin-connection-filter-postgis");
 //const { default: FederationPlugin } = require("@graphile/federation")
+const PgManyToManyPlugin = require("@graphile-contrib/pg-many-to-many");
 require('dotenv').config()
 const app = express()
 
@@ -20,6 +21,8 @@ app.use(
     pgPool,
     process.env.SCHEMA_NAMES ? process.env.SCHEMA_NAMES.split(',') : ['event'],
     {
+      appendPlugins: [PgManyToManyPlugin],
+    
       //appendPlugins: [ConnectionFilterPlugin, PostgisPlugin.default, PgConnectionFilterPostgisPlugin, FederationPlugin],
     //   graphileBuildOptions: {
     //     connectionFilterRelations: true,
