@@ -1,7 +1,7 @@
 const pg = require('pg')
 const express = require('express')
 const { postgraphile } = require('postgraphile')
-//const ConnectionFilterPlugin = require('postgraphile-plugin-connection-filter')
+const ConnectionFilterPlugin = require('postgraphile-plugin-connection-filter')
 //const PostgisPlugin =  require("@graphile/postgis")
 //const PgConnectionFilterPostgisPlugin = require("postgraphile-plugin-connection-filter-postgis");
 //const { default: FederationPlugin } = require("@graphile/federation")
@@ -9,9 +9,6 @@ const PgManyToManyPlugin = require("@graphile-contrib/pg-many-to-many");
 require('dotenv').config()
 const app = express()
 
-console.log(process.env.POSTGRES_DB)
-console.log(process.env.POSTGRES_USER)
-console.log(process.env.DATABASE_URL)
 const pgPool = new pg.Pool({
   connectionString: (process.env.DATABASE_URL || 'postgres://postgres:postgres416@localhost:5432/gather'),
 })
@@ -21,12 +18,10 @@ app.use(
     pgPool,
     process.env.SCHEMA_NAMES ? process.env.SCHEMA_NAMES.split(',') : ['event'],
     {
-      appendPlugins: [PgManyToManyPlugin],
-    
-      //appendPlugins: [ConnectionFilterPlugin, PostgisPlugin.default, PgConnectionFilterPostgisPlugin, FederationPlugin],
-    //   graphileBuildOptions: {
-    //     connectionFilterRelations: true,
-    //   },
+      appendPlugins: [PgManyToManyPlugin, ConnectionFilterPlugin],
+      graphileBuildOptions: {
+        connectionFilterRelations: true,
+      },    
       watchPg: true,
       graphiql: true,
       enhanceGraphiql: true,
