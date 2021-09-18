@@ -10,6 +10,7 @@
   "license": "ISC",
   "dependencies": {
     "@graphile-contrib/pg-many-to-many": "github:graphile-contrib/pg-many-to-many",
+    "cors": "^2.8.5",
     "dotenv": "^10.0.0",
     "express": "^4.17.1",
     "postgraphile": "^4.12.3",

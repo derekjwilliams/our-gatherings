@@ -1,5 +1,6 @@
 const pg = require('pg')
 const express = require('express')
+const cors = require('cors')
 const { postgraphile } = require('postgraphile')
 const ConnectionFilterPlugin = require('postgraphile-plugin-connection-filter')
 //const PostgisPlugin =  require("@graphile/postgis")
@@ -7,7 +8,9 @@ const ConnectionFilterPlugin = require('postgraphile-plugin-connection-filter')
 //const { default: FederationPlugin } = require("@graphile/federation")
 const PgManyToManyPlugin = require("@graphile-contrib/pg-many-to-many");
 require('dotenv').config()
+
 const app = express()
+app.use(cors())
 
 const pgPool = new pg.Pool({
   connectionString: (process.env.DATABASE_URL || 'postgres://postgres:postgres416@localhost:5432/gather'),
