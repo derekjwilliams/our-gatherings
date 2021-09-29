@@ -4,6 +4,7 @@ import React from "react";
 import Gatherings from "./Components/Gatherings";
 import Locations from "./Components/Locations";
 import Participants from "./Components/Participants";
+import Schema from "./Components/Schema";
 
 function App() {
   return (
@@ -16,13 +17,18 @@ function App() {
           </div>
 
           <div>
-            All locations:
+            All Locations:
             <Locations></Locations>
           </div>
 
           <div>
             All participants:
             <Participants></Participants>
+          </div>
+
+          <div>
+            Schema: 
+            <Schema></Schema>
           </div>
        </header>
     </div>
