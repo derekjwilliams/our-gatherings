@@ -118,7 +118,6 @@ function ObjectTypesInSchema(props) {
       return f.name === 'cursor'
     })
 
-
     if (isNodes) {
       return false
     }
@@ -133,6 +132,7 @@ function ObjectTypesInSchema(props) {
       {TopObjects.map((e,i,a) => {
         return (
           <div key={i}>
+            <hr></hr>
             <div>
               {e.name}
             </div>
@@ -142,7 +142,15 @@ function ObjectTypesInSchema(props) {
             <div>
               {e.description}
             </div>
-            <hr></hr>
+            <div>
+              Fields:
+              <div>
+              {e.fields.filter(e => e.type.kind === 'SCALAR').map((f,i) => {
+                const n = f.name
+                return <div><input key = {i}type="checkbox"/><label>{f.name}</label></div>
+              })}
+              </div>
+            </div>
           </div>
         )
       })}

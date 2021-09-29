@@ -28,7 +28,7 @@ function App() {
           </div>
 
           <div>
-            Schema: 
+            Top Level Objects: 
             <ObjectTypesInSchema></ObjectTypesInSchema>
           </div>
        </header>
