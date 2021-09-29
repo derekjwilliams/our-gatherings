@@ -146,7 +146,6 @@ function ObjectTypesInSchema(props) {
               Fields:
               <div>
               {e.fields.filter(e => e.type.kind === 'SCALAR').map((f,i) => {
-                const n = f.name
                 return <div><input key = {i}type="checkbox"/><label>{f.name}</label></div>
               })}
               </div>
