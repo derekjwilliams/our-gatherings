@@ -5,6 +5,7 @@ import Gatherings from "./Components/Gatherings";
 import Locations from "./Components/Locations";
 import Participants from "./Components/Participants";
 import Schema from "./Components/Schema";
+import ObjectTypesInSchema from './Components/ObjectTypesInSchema'
 
 function App() {
   return (
@@ -28,7 +29,7 @@ function App() {
 
           <div>
             Schema: 
-            <Schema></Schema>
+            <ObjectTypesInSchema></ObjectTypesInSchema>
           </div>
        </header>
     </div>
