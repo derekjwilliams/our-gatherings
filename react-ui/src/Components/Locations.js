@@ -1,33 +1,34 @@
 import React from "react";
-import { useQuery, gql } from "@apollo/client";
-import LocationDetail from "./LocationDetail"
 
-const allLocationsQuery = gql`
-  query {
+import { gql, useQuery } from '@apollo/client';
+
+const GET_LOCATIONS = gql`
+  {
     allLocations {
-      nodes {
-        id
+    	nodes {
+				id
         name
-        description
       }
     }
   }
-`;  
+`
 
-const Locations = () => {
-  const { loading, error, data } = useQuery(allLocationsQuery);
-  if (loading) return <p>Loading...</p>;
-  if (error) return <p>Error :(</p>;
+function Locations(props) {
+	const { loading, error, data } = useQuery(GET_LOCATIONS);
+
+  if (loading) return 'Loading...';
+  if (error) return `Error! ${error.message}`;
+
   return (
-    <div className="locations-list">
-        {data.allLocations.nodes.map((location) => (
-          <LocationDetail key={location.id} location={location}></LocationDetail>
-         )
-        )
-        }
+    <div name="dog">
+      {data.allLocations.nodes.map(v => (
+        <div key={v.id}>
+          {v.name}
+        </div>
+      ))}
     </div>
   );
-};
+}
+
 
 export default Locations;
-

@@ -1,34 +1,34 @@
 import React from "react";
-<<<<<<< HEAD
-import { useQuery, gql } from "@apollo/client";
-import GatheringDetail from "./GatheringDetail"
 
-const allGatheringsQuery = gql`
-  query {
+import { gql, useQuery } from '@apollo/client';
+
+const GET_GATHERINGS = gql`
+  {
     allGatherings {
-      nodes {
-        id
+    	nodes {
+				id
         name
-        description
       }
     }
   }
-`;  
+`
 
-const Gatherings = () => {
-  const { loading, error, data } = useQuery(allGatheringsQuery);
-  if (loading) return <p>Loading...</p>;
-  if (error) return <p>Error :(</p>;
-  return (
-    <div className="Gatherings-list">
-        {data.allGatherings.nodes.map((gathering) => (
-          <GatheringDetail key={gathering.id} gathering={gathering}></GatheringDetail>
-         )
-        )
-        }
+function Gatherings(props) {
+	const { loading, error, data } = useQuery(GET_GATHERINGS);
+
+  if (loading) return 'Loading...';
+  if (error) return `Error! ${error.message}`;
+
+	return (
+    <div name="dog">
+      {data.allGatherings.nodes.map(v => (
+        <div key={v.id}>
+          {v.name}
+        </div>
+      ))}
     </div>
   );
-};
+}
+
 
 export default Gatherings;
-
