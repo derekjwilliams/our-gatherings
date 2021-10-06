@@ -4,6 +4,8 @@ import React from "react";
 import Gatherings from "./Components/Gatherings";
 import Locations from "./Components/Locations";
 import Participants from "./Components/Participants";
+import Schema from "./Components/Schema";
+import ObjectTypesInSchema from './Components/ObjectTypesInSchema'
 
 function App() {
   return (
@@ -16,13 +18,18 @@ function App() {
           </div>
 
           <div>
-            All locations:
+            All Locations:
             <Locations></Locations>
           </div>
 
           <div>
             All participants:
             <Participants></Participants>
+          </div>
+
+          <div>
+            Top Level Objects: 
+            <ObjectTypesInSchema></ObjectTypesInSchema>
           </div>
        </header>
     </div>

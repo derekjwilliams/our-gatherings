@@ -1,31 +1,34 @@
 import React from "react";
-import { useQuery, gql } from "@apollo/client";
-import ParticipantDetail from "./ParticipantDetail"
 
-const allParticipantsQuery = gql`
-  query {
+import { gql, useQuery } from '@apollo/client';
+
+const GET_LOCATIONS = gql`
+  {
     allParticipants {
-      nodes {
-        id
+    	nodes {
+				id
         name
       }
     }
   }
-`;  
+`
 
-const Participants = () => {
-  const { loading, error, data } = useQuery(allParticipantsQuery);
-  if (loading) return <p>Loading...</p>;
-  if (error) return <p>Error :(</p>;
+function Participants(props) {
+	const { loading, error, data } = useQuery(GET_LOCATIONS);
+
+  if (loading) return 'Loading...';
+  if (error) return `Error! ${error.message}`;
+
   return (
-    <div className="locations-list">
-        {data.allParticipants.nodes.map((participant) => (
-          <ParticipantDetail key={participant.id} participant={participant}></ParticipantDetail>
-         )
-        )
-        }
+    <div name="dog">
+      {data.allParticipants.nodes.map(v => (
+        <div key={v.id}>
+          {v.name}
+        </div>
+      ))}
     </div>
   );
-};
+}
+
 
 export default Participants;

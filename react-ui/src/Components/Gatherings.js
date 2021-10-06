@@ -1,4 +1,5 @@
 import React from "react";
+<<<<<<< HEAD
 import { useQuery, gql } from "@apollo/client";
 import GatheringDetail from "./GatheringDetail"
 
@@ -30,3 +31,4 @@ const Gatherings = () => {
 };
 
 export default Gatherings;
+
