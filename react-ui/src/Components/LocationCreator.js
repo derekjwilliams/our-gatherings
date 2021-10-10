@@ -1,6 +1,5 @@
 import { gql, useMutation } from '@apollo/client';
 
-// Define mutation
 const CREATE_LOCATION = gql
 `mutation CreateLocation($newLocation: CreateLocationInput!) {
   createLocation(input: $newLocation) {
@@ -9,13 +8,6 @@ const CREATE_LOCATION = gql
     }
   }
 }`;
-// `mutation CreateLocation($newLocation: CreateLocationInput!) {
-//   createLocation(input: $newLocation) {
-//     location {
-//       name
-//     }
-//   }
-// }`;
 
 function LocationCreator() {
   let nameInput;
@@ -41,6 +33,7 @@ function LocationCreator() {
             } 
           });
           nameInput.value = '';
+          descriptionInput.value = '';
         }}
       >
         <input
