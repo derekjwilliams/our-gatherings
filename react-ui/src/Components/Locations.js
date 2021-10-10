@@ -8,6 +8,7 @@ const GET_LOCATIONS = gql`
     	nodes {
 				id
         name
+        description
       }
     }
   }
@@ -20,12 +21,17 @@ function Locations(props) {
   if (error) return `Error! ${error.message}`;
 
   return (
-    <div name="dog">
-      {data.allLocations.nodes.map(v => (
-        <div key={v.id}>
-          {v.name}
-        </div>
-      ))}
+    <div name="locations">
+      {data.allLocations.nodes.map(location => (
+        <div class="location">
+        <span key={location.id}>
+          {location.name}, 
+        </span>
+        <span key={location.description}>
+          {location.description}
+        </span>
+      </div>
+    ))}
     </div>
   );
 }

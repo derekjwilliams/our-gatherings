@@ -4,6 +4,7 @@ import React from "react";
 import Gatherings from "./Components/Gatherings";
 import GatheringCreator from "./Components/GatheringCreator";
 import Locations from "./Components/Locations";
+import LocationCreator from "./Components/LocationCreator";
 import Participants from "./Components/Participants";
 import Schema from "./Components/Schema";
 import ObjectTypesInSchema from './Components/ObjectTypesInSchema'
@@ -20,14 +21,20 @@ function App() {
       <div>
         <nav>
           <ul>
-            {/* <li>
-              <Link to="/">Home</Link>
-            </li> */}
             <li>
               <Link to="/gatherings">Gatherings</Link>
             </li>
             <li>
-              <Link to="/gatheringCreator">Create Creator</Link>
+              <Link to="/gatheringCreator">Create Gathering</Link>
+            </li>
+            <li>
+              <Link to="/locations">Locations</Link>
+            </li>
+            <li>
+              <Link to="/locationCreator">Create Location</Link>
+            </li>
+            <li>
+              <Link to="/participants">Participants</Link>
             </li>
           </ul>
         </nav>
@@ -38,12 +45,18 @@ function App() {
           <Route path="/gatherings">
             <Gatherings />
           </Route>
+          <Route path="/locations">
+            <Locations />
+          </Route>
+          <Route path="/participants">
+            <Participants />
+          </Route>
           <Route path="/gatheringCreator">
             <GatheringCreator />
           </Route>
-          {/* <Route path="/">
-            <Home />
-          </Route> */}
+          <Route path="/locationCreator">
+            <LocationCreator />
+          </Route>
         </Switch>
       </div>
     </Router>
