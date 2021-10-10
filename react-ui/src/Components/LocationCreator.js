@@ -39,12 +39,14 @@ const LocationCreator = () => {
           descriptionInput.value = '';
         }}
       >
-        <input
+        <label for="new-location-name">Name: </label>
+        <input id="new-location-name"
           ref={node => {
             nameInput = node;
           }}
         />
-        <input
+        <label for="new-description-name">Description: </label>
+        <input id="new-description-name"
           ref={node => {
             descriptionInput = node;
           }}
