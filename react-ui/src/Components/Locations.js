@@ -1,18 +1,7 @@
 import React from "react";
 
 import { gql, useQuery } from '@apollo/client';
-
-const GET_LOCATIONS = gql`
-  {
-    allLocations {
-    	nodes {
-				id
-        name
-        description
-      }
-    }
-  }
-`
+import { GET_LOCATIONS} from '../Queries/LocationsQuery';
 
 function Locations(props) {
 	const { loading, error, data } = useQuery(GET_LOCATIONS);

@@ -31,7 +31,7 @@ function App() {
               <Link to="/locations">Locations</Link>
             </li>
             <li>
-              <Link to="/locationCreator">Create Location</Link>
+              <Link to="/locations/new">Create Location</Link>
             </li>
             <li>
               <Link to="/participants">Participants</Link>
@@ -45,6 +45,9 @@ function App() {
           <Route path="/gatherings">
             <Gatherings />
           </Route>
+          <Route path="/locations/new">
+            <LocationCreator />
+          </Route>
           <Route path="/locations">
             <Locations />
           </Route>
@@ -54,9 +57,7 @@ function App() {
           <Route path="/gatheringCreator">
             <GatheringCreator />
           </Route>
-          <Route path="/locationCreator">
-            <LocationCreator />
-          </Route>
+
         </Switch>
       </div>
     </Router>

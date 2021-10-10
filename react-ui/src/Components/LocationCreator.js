@@ -1,7 +1,9 @@
 import { gql, useMutation } from '@apollo/client';
+import Locations from './Locations';
+import { GET_LOCATIONS} from '../Queries/LocationsQuery';
 
 const CREATE_LOCATION = gql
-`mutation CreateLocation($newLocation: CreateLocationInput!) {
+  `mutation CreateLocation($newLocation: CreateLocationInput!) {
   createLocation(input: $newLocation) {
     location {
       name
@@ -9,7 +11,7 @@ const CREATE_LOCATION = gql
   }
 }`;
 
-function LocationCreator() {
+const LocationCreator = () => {
   let nameInput;
   let descriptionInput;
   const [createLocation, { data, loading, error }] = useMutation(CREATE_LOCATION);
@@ -22,15 +24,16 @@ function LocationCreator() {
       <form
         onSubmit={e => {
           e.preventDefault();
-          createLocation({ 
+          createLocation({
             variables: {
               newLocation: {
-              location: {
-                name: nameInput.value,
-                description: descriptionInput.value
+                location: {
+                  name: nameInput.value,
+                  description: descriptionInput.value
+                }
               }
-            }
-            } 
+            },
+            refetchQueries: [GET_LOCATIONS]
           });
           nameInput.value = '';
           descriptionInput.value = '';
@@ -48,6 +51,7 @@ function LocationCreator() {
         />
         <button type="submit">Add Location</button>
       </form>
+      <Locations></Locations>
     </div>
   );
 }
